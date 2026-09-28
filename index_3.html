@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shared Surplus</title>
+<meta name="description" content="Shared Surplus rescues new and like-new goods and sells them live on The Overflow. Every purchase helps buy essentials for local groups in need.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil:wght@700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --paper: #F1F3EE;
+    --card: #FBFCF9;
+    --ink: #1C2A28;
+    --muted: #5B6B66;
+    --line: #CBD2C9;
+    --green: #2E5C4F;
+    --tape: #E3A23B;
+    --tape-ink: #2A1E08;
+    --display: "Big Shoulders Stencil", "Big Shoulders Stencil Display", "Arial Narrow", Impact, sans-serif;
+    --body: "Karla", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper: #131B1A;
+      --card: #1A2423;
+      --ink: #E7EBE5;
+      --muted: #9AAAA4;
+      --line: #2F3D3B;
+      --green: #7DB39F;
+      --tape: #EDB256;
+      --tape-ink: #21170A;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #131B1A;
+    --card: #1A2423;
+    --ink: #E7EBE5;
+    --muted: #9AAAA4;
+    --line: #2F3D3B;
+    --green: #7DB39F;
+    --tape: #EDB256;
+    --tape-ink: #21170A;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+    padding: 0 20px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 560px;
+    margin: 0 auto;
+    padding-block: 56px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+  }
+
+  /* Header */
+  .brand { display: flex; align-items: center; gap: 16px; }
+  .mark { width: 64px; height: 64px; flex: none; }
+  .mark .box { stroke: var(--ink); }
+  .mark .lift { fill: var(--tape); }
+  .mark .inside { fill: var(--green); }
+  .wordmark {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(2.3rem, 9vw, 3.1rem);
+    line-height: 0.9;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .tagline {
+    margin: 18px 0 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-wrap: balance;
+  }
+  .origin {
+    margin: 6px 0 0;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Mission */
+  .label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  .mission p { margin: 0; max-width: 62ch; }
+  .mission p + p { margin-top: 14px; }
+
+  /* The Overflow */
+  .show { display: flex; flex-direction: column; gap: 14px; }
+  .show-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px; }
+  .show-name {
+    display: inline-block;
+    background: var(--tape);
+    color: var(--tape-ink);
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    padding: 8px 14px 6px;
+    transform: rotate(-1.5deg);
+  }
+  .show-sub { margin: 0; color: var(--muted); }
+
+  .links { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+  .links li { border-bottom: 1px solid var(--line); }
+  .links a {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 2px 16px;
+    padding: 16px 4px;
+    color: inherit;
+    text-decoration: none;
+    transition: background-color .15s ease, padding .15s ease;
+  }
+  .links .name { font-weight: 700; font-size: 1.15rem; }
+  .links .what { grid-column: 1; color: var(--muted); font-size: 0.95rem; }
+  .links .handle {
+    grid-row: 1 / span 2; grid-column: 2;
+    font-family: var(--mono); font-size: 0.85rem; color: var(--green);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .links .arrow { font-family: var(--body); font-size: 1.2rem; transition: transform .15s ease; }
+  .links a:hover { background: var(--card); padding-inline: 12px; }
+  .links a:hover .arrow { transform: translateX(3px); }
+  .links a:focus-visible { outline: 3px solid var(--tape); outline-offset: 2px; }
+
+  /* Label block */
+  .ship {
+    background: var(--card);
+    border: 2px solid var(--ink);
+    padding: 18px 20px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px 18px;
+    font-size: 0.98rem;
+  }
+  .ship .k {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 3px;
+  }
+  .ship .v { margin: 0; }
+  .ship .title {
+    grid-column: 1 / -1;
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 1.35rem;
+    text-transform: uppercase;
+    border-bottom: 2px dashed var(--line);
+    padding-bottom: 10px;
+    margin: 0 0 4px;
+  }
+
+  footer {
+    font-size: 0.9rem;
+    color: var(--muted);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px;
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+  }
+  footer .email { font-family: var(--mono); color: var(--ink); user-select: all; }
+
+  @media (max-width: 480px) {
+    .links .at { display: none; }
+  }
+  @media (max-width: 420px) {
+    .ship { grid-template-columns: 1fr; gap: 2px; }
+    .ship .v { margin-bottom: 8px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .links a, .links .arrow { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Shared Surplus mark: an open box with goods spilling over the top">
+        <path class="box" d="M8 24 V56 H26" fill="none" stroke-width="6" stroke-linecap="square"/>
+        <path class="box" d="M34 56 H52 V36" fill="none" stroke-width="6" stroke-linecap="square"/>
+        <rect class="inside" x="15" y="34" width="15" height="15"/>
+        <rect class="lift" x="34" y="8" width="20" height="20" transform="rotate(16 44 18)"/>
+      </svg>
+      <h1 class="wordmark">Shared<br>Surplus</h1>
+    </div>
+    <p class="tagline">Bridging the gap between excess and essential.</p>
+    <p class="origin">Veteran founded · Elizabethtown, PA</p>
+  </header>
+
+  <section class="mission" aria-labelledby="mission-label">
+    <h2 class="label" id="mission-label">Our mission</h2>
+    <p>Shared Surplus rescues new and like-new goods that would otherwise go to waste and gives them a second life. We sell them live, on camera, so you can see exactly what you're getting.</p>
+    <p>Every purchase sends a portion of the money back into our community. We use it to buy new essentials for local groups serving families, seniors, and neighbors in need across Lancaster, Harrisburg, and York.</p>
+  </section>
+
+  <section class="show" aria-labelledby="show-label">
+    <div class="show-head">
+      <h2 class="show-name" id="show-label">The Overflow</h2>
+      <p class="show-sub">Our live show. Find it here.</p>
+    </div>
+    <ul class="links">
+      <li><a href="https://www.whatnot.com/user/sharedsurplus" target="_blank" rel="noopener">
+        <span class="name">Whatnot</span>
+        <span class="what">Live auctions. Bid and buy during the show.</span>
+        <span class="handle"><span class="at">@sharedsurplus</span> <span class="arrow" aria-hidden="true">→</span></span>
+      </a></li>
+      <li><a href="https://www.tiktok.com/@sharedsurplus" target="_blank" rel="noopener">
+        <span class="name">TikTok</span>
+        <span class="what">Live shows and quick finds.</span>
+        <span class="handle"><span class="at">@sharedsurplus</span> <span class="arrow" aria-hidden="true">→</span></span>
+      </a></li>
+      <li><a href="https://www.youtube.com/@sharedsurplus" target="_blank" rel="noopener">
+        <span class="name">YouTube</span>
+        <span class="what">Full shows and replays.</span>
+        <span class="handle"><span class="at">@sharedsurplus</span> <span class="arrow" aria-hidden="true">→</span></span>
+      </a></li>
+      <li><a href="https://www.instagram.com/sharedsurplus" target="_blank" rel="noopener">
+        <span class="name">Instagram</span>
+        <span class="what">Show times, unboxings, and where the giving goes.</span>
+        <span class="handle"><span class="at">@sharedsurplus</span> <span class="arrow" aria-hidden="true">→</span></span>
+      </a></li>
+    </ul>
+  </section>
+
+  <section class="ship" aria-label="Where a share of every order goes">
+    <p class="title">Where your share goes</p>
+    <span class="k">From</span><p class="v">Every order you place with us</p>
+    <span class="k">To</span><p class="v">Local groups in Lancaster, Harrisburg, and York</p>
+    <span class="k">Contents</span><p class="v">New essentials for the families and neighbors they serve</p>
+  </section>
+
+  <footer>
+    <span>© 2026 Shared Surplus</span>
+    <span>Contact <span class="email">infosharedsurplus@gmail.com</span></span>
+  </footer>
+</div>
+
+</body>
+</html>
