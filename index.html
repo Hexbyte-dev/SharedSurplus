@@ -51,6 +51,8 @@
   .links .arrow { font-size: 1.2rem; transition: transform .15s ease; }
   .links a:hover { border-color: var(--teal); }
   .links a:hover .arrow { transform: translateX(3px); }
+  .links a.shop { border-color: var(--teal); background: var(--wash); }
+  .links a.shop .handle { color: var(--coral); }
   .links a:focus-visible { outline: 3px solid var(--coral); outline-offset: 2px; }
   .share { background: var(--wash); border-radius: 22px; padding: 22px 24px; display: grid; grid-template-columns: auto 1fr; gap: 10px 18px; }
   .share .title { grid-column: 1 / -1; display: flex; align-items: center; gap: 10px; margin: 0 0 4px; font-family: var(--display); font-weight: 600; font-size: 1.35rem; }
@@ -76,6 +78,17 @@
     <h2 class="label" id="mission-label">Our mission</h2>
     <p>Shared Surplus rescues new and like-new goods that would otherwise go to waste and gives them a second life. We sell them live, on camera, so you can see exactly what you're getting.</p>
     <p>Every purchase sends a portion of the money back into our community. We use it to buy new essentials for local groups serving families, seniors, and neighbors in need across Lancaster, Harrisburg, and York.</p>
+  </section>
+
+  <section class="show" aria-labelledby="shop-label">
+    <h2 class="label" id="shop-label">Shop anytime</h2>
+    <ul class="links">
+      <li><a class="shop" href="https://shared-surplus.myshopify.com/" target="_blank" rel="noopener">
+        <span class="name">Online store</span>
+        <span class="what">Browse current finds and buy now, no live show needed.</span>
+        <span class="handle">Shop now <span class="arrow" aria-hidden="true">→</span></span>
+      </a></li>
+    </ul>
   </section>
 
   <section class="show" aria-labelledby="show-label">
